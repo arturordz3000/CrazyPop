@@ -19,5 +19,19 @@ public class Pop3Controller : Pop1Controller {
 			Destroy(this.gameObject);
 			Game.score += 5;
 		}
+
+		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {
+			Vector2 p;
+			if(!isMovingDown){
+				p = this.gameObject.rigidbody2D.velocity;
+				p.x += -p.x;
+				this.gameObject.rigidbody2D.velocity = p;
+				isMovingDown = true;
+			}
+			
+			p.x = collisionInfo.gameObject.transform.position.x;
+			p.y = this.gameObject.transform.position.y;
+			this.gameObject.transform.position = p;
+		}
 	}
 }

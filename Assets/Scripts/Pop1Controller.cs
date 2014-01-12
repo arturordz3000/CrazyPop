@@ -9,7 +9,12 @@ public class Pop1Controller : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	protected virtual void Update () {
+		Vector2 position = transform.position;
+
+		if (position.y < -10)
+			Destroy (gameObject);
 	}
+
+
 }

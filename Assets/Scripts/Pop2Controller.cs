@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pop2Controller : MonoBehaviour {
+public class Pop2Controller : Pop1Controller {
 
 	// Use this for initialization
 	void Start () {
@@ -9,7 +9,7 @@ public class Pop2Controller : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	protected override void Update () {
+		base.Update ();
 	}
 }

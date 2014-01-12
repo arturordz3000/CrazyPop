@@ -13,9 +13,10 @@ public class Game : MonoBehaviour {
 	public static int score;
 	public Transform crazyPopLogo;
 	public float logoPositionOffset = 100;
-
 	public float timeLeft = 60.0f;
+
 	private float instantiateTime = 0;
+	private bool isGameFinished = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,17 +25,21 @@ public class Game : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		instantiateTime += Time.deltaTime;
-		timeLeft -= Time.deltaTime;
 
-		/*if (timeLeft <= 1) {
-			Application.LoadLevel("gameover-screen");
-		}*/
+		if (!isGameFinished) {
+			instantiateTime += Time.deltaTime;
+			timeLeft -= Time.deltaTime;
+		}
 
-		if (instantiateTime > 0.5)
-		{
-			InstantiateRandomPop();
-			instantiateTime = 0;
+		if (timeLeft <= 1) {
+			isGameFinished = true;
+		}
+
+		if (!isGameFinished) {
+			if (instantiateTime > 0.5) {
+				InstantiateRandomPop ();
+				instantiateTime = 0;
+			}
 		}
 
 		Vector2 crazyPopLogoPosition = crazyPopLogo.transform.position;

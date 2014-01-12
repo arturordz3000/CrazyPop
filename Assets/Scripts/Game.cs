@@ -48,5 +48,7 @@ public class Game : MonoBehaviour {
 
 		GameObject pop = (GameObject) Instantiate(pops[popIndex], instantiator.transform.position, transform.rotation);
 		pop.rigidbody2D.AddForce(launchVector * force);
+
+		pop.rigidbody2D.AddTorque (10 * -x);
 	}
 }

@@ -10,6 +10,7 @@ public class Game : MonoBehaviour {
 	public KeyCode instantiateKey;
 	public float force = 500;
 	public GUIStyle style;
+	public static int score;
 
 	public float timeLeft = 60.0f;
 	private float instantiateTime = 0;
@@ -59,5 +60,6 @@ public class Game : MonoBehaviour {
 	{
 		int timeLeftInteger = (int)timeLeft;
 		GUI.Label(new Rect(Screen.width - 32 - 30, 40, 100, 100),  timeLeftInteger.ToString(), style);
+		GUI.Label (new Rect (10, 100, 100, 100), "Score: " + score, style);
 	}
 }

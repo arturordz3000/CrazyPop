@@ -4,8 +4,8 @@ using System.Collections;
 public class Pop3Controller : Pop1Controller {
 
 	// Use this for initialization
-	void Start () {
-	
+	protected override void Start () {
+		base.Start ();
 	}
 	
 	// Update is called once per frame
@@ -15,6 +15,9 @@ public class Pop3Controller : Pop1Controller {
 
 	protected override void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
-		base.OnCollisionEnter2D (collisionInfo);
+		if (collisionInfo.gameObject.tag == "MouthCollider") {
+			Destroy(this.gameObject);
+			Game.score += 5;
+		}
 	}
 }

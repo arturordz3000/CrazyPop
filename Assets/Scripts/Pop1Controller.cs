@@ -6,8 +6,8 @@ public class Pop1Controller : MonoBehaviour {
 	//public GameObject mouthCollider;
 
 	// Use this for initialization
-	void Start () {
-	
+	protected virtual void Start () {
+		renderer.sortingOrder = 1;
 	}
 	
 	// Update is called once per frame
@@ -16,6 +16,10 @@ public class Pop1Controller : MonoBehaviour {
 
 		if (position.y < -10)
 			Destroy (gameObject);
+
+		if (gameObject.rigidbody2D.velocity.y < 0) {
+			renderer.sortingOrder = 1;
+		}
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D collisionInfo)
@@ -24,6 +28,7 @@ public class Pop1Controller : MonoBehaviour {
 
 		if (collisionInfo.gameObject.tag == "MouthCollider") {
 			Destroy(this.gameObject);
+			Game.score += 1;
 		}
 
 

@@ -18,6 +18,8 @@ public class Game : MonoBehaviour {
 	private float instantiateTime = 0;
 	private bool isGameFinished = false;
 
+	public static int popNumber = 0;
+
 	// Use this for initialization
 	void Start () {
 		Screen.showCursor = false;
@@ -33,6 +35,10 @@ public class Game : MonoBehaviour {
 
 		if (timeLeft <= 1) {
 			isGameFinished = true;
+
+			if(popNumber == 0) {
+				// Game finished
+			}
 		}
 
 		if (!isGameFinished) {

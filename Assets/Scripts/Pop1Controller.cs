@@ -8,15 +8,18 @@ public class Pop1Controller : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
-		audio.Play ();
+		audio.Play ();		
+		Game.popNumber++;
 	}
 	
 	// Update is called once per frame
 	protected virtual void Update () {
 		Vector2 position = transform.position;
 
-		if (position.y < -10)
+		if (position.y < -10) {
+			Game.popNumber--;
 			Destroy (gameObject);
+		}
 
 		if (gameObject.rigidbody2D.velocity.y < 0) {
 			renderer.sortingOrder = 1;

@@ -18,6 +18,7 @@ public class Pop3Controller : Pop1Controller {
 		if (collisionInfo.gameObject.tag == "MouthCollider") {
 			Destroy(this.gameObject);
 			Game.score += 5;
+			Game.popNumber--;
 		}
 
 		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {

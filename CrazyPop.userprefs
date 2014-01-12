@@ -1,14 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Pop2Controller.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game.cs">
     <Files>
-      <File FileName="CrazyPop.sln" Line="40" Column="1" />
-      <File FileName="Assets\Scripts\Game.cs" Line="142" Column="1" />
+      <File FileName="Assets\Scripts\Score.cs" Line="10" Column="17" />
+      <File FileName="CrazyPop.sln" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game.cs" Line="152" Column="1" />
       <File FileName="Assets\Scripts\MenuController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="37" Column="34" />
-      <File FileName="Assets\Scripts\Pop1Controller.cs" Line="45" Column="3" />
-      <File FileName="Assets\Scripts\Pop2Controller.cs" Line="41" Column="2" />
-      <File FileName="Assets\Scripts\Pop3Controller.cs" Line="30" Column="5" />
+      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

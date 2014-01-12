@@ -25,10 +25,15 @@ public class Game : MonoBehaviour {
 
 	public static int popNumber = 0;
 
+	private GameObject scoreHud;
+	public GameObject scoreHudPrefab;
+	public Transform scoreHudPosition;
+
 	// Use this for initialization
 	void Start () {
 		Screen.showCursor = false;
 		totalTime = timeLeft;
+		score = 0;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +49,7 @@ public class Game : MonoBehaviour {
 
 			if(popNumber == 0) {
 				// Game finished
+				showScore();
 			}
 		}
 
@@ -108,7 +114,7 @@ public class Game : MonoBehaviour {
 	{
 		int timeLeftInteger = (int)timeLeft;
 		GUI.Label(new Rect(Screen.width - 32 - 30, 40, 100, 100),  timeLeftInteger.ToString(), style);
-		GUI.Label (new Rect (Screen.width - 32 - 100, 130, 100, 100), "Score: " + score, style);
+		GUI.Label (new Rect (Screen.width - 32 - 100, 130, 100, 100), "Pops: " + score, style);
 	}
 
 	void OnPostRender()
@@ -137,5 +143,15 @@ public class Game : MonoBehaviour {
 		}
 		
 		GL.End ();
+	}
+
+	void showScore()
+	{
+		if (scoreHud != null)
+			return;
+		Screen.showCursor = true;
+		Score.score = score;
+		scoreHud = (GameObject) Instantiate(scoreHudPrefab, scoreHudPosition.transform.position, scoreHudPosition.transform.rotation);
+
 	}
 }

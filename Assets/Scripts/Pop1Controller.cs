@@ -41,6 +41,7 @@ public class Pop1Controller : MonoBehaviour {
 		if (collisionInfo.gameObject.tag == "MouthCollider") {
 			Destroy(this.gameObject);
 			Game.score += 1;
+			Game.popNumber--;
 		}
 
 		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {

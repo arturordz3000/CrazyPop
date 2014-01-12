@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuController : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,6 @@ public class MenuController : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		Debug.Log ("Running main level");
-		Application.LoadLevel ("main-game");
+		Application.LoadLevel ("main-screen");
 	}
 }

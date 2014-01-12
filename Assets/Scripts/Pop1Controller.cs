@@ -18,6 +18,12 @@ public class Pop1Controller : MonoBehaviour {
 	protected virtual void Update () {
 		Vector2 position = transform.position;
 
+		if (isMovingDown) {
+			Vector2 p = gameObject.transform.position;
+			p.y -= 0.2f;
+			gameObject.transform.position = p;
+		}
+
 		if (position.y < -10) {
 			Game.popNumber--;
 			Destroy (gameObject);
@@ -25,10 +31,6 @@ public class Pop1Controller : MonoBehaviour {
 
 		if (gameObject.rigidbody2D.velocity.y < 0) {
 			renderer.sortingOrder = 1;
-		}
-
-		if (isMovingDown) {
-
 		}
 	}
 
@@ -42,10 +44,14 @@ public class Pop1Controller : MonoBehaviour {
 		}
 
 		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {
-			Vector2 p = this.gameObject.rigidbody2D.velocity;
-			p.x += -p.x;
-			this.gameObject.rigidbody2D.velocity = p;
-			isMovingDown = true;
+			Vector2 p;
+			if(!isMovingDown){
+				p = this.gameObject.rigidbody2D.velocity;
+				p.x += -p.x;
+				this.gameObject.rigidbody2D.velocity = p;
+				isMovingDown = true;
+			}
+
 			p.x = collisionInfo.gameObject.transform.position.x;
 			p.y = this.gameObject.transform.position.y;
 			this.gameObject.transform.position = p;

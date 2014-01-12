@@ -11,6 +11,8 @@ public class Game : MonoBehaviour {
 	public float force = 500;
 	public GUIStyle style;
 	public static int score;
+	public Transform crazyPopLogo;
+	public float logoPositionOffset = 100;
 
 	public float timeLeft = 60.0f;
 	private float instantiateTime = 0;
@@ -34,6 +36,10 @@ public class Game : MonoBehaviour {
 			InstantiateRandomPop();
 			instantiateTime = 0;
 		}
+
+		Vector2 crazyPopLogoPosition = crazyPopLogo.transform.position;
+		crazyPopLogoPosition.x = Camera.main.ScreenToWorldPoint (new Vector3 (logoPositionOffset * 2, 0, 0)).x;
+		crazyPopLogo.transform.position = crazyPopLogoPosition;
 	}
 
 	void InstantiateRandomPop()
@@ -64,6 +70,6 @@ public class Game : MonoBehaviour {
 	{
 		int timeLeftInteger = (int)timeLeft;
 		GUI.Label(new Rect(Screen.width - 32 - 30, 40, 100, 100),  timeLeftInteger.ToString(), style);
-		GUI.Label (new Rect (10, 100, 100, 100), "Score: " + score, style);
+		GUI.Label (new Rect (Screen.width - 32 - 100, 130, 100, 100), "Score: " + score, style);
 	}
 }

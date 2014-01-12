@@ -40,7 +40,7 @@ public class Game : MonoBehaviour {
 	{
 		int popIndex = 0;
 		
-		int range = Random.Range(0, 100);
+		int range = Random.Range(81, 100);
 		
 		if( range >= 0 && range <= 40)
 			popIndex = 0;

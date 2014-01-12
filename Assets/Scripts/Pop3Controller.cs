@@ -12,4 +12,9 @@ public class Pop3Controller : Pop1Controller {
 	protected override void Update () {
 		base.Update ();
 	}
+
+	protected override void OnCollisionEnter2D(Collision2D collisionInfo)
+	{
+		base.OnCollisionEnter2D (collisionInfo);
+	}
 }

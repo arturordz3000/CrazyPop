@@ -6,14 +6,15 @@ public class Game : MonoBehaviour {
 
 	public List<GameObject> pops;
 
+	public Transform instantiator;
 	public KeyCode instantiateKey;
-	public float force = 100;
+	public float force = 500;
 
 	private float instantiateTime = 0;
 
 	// Use this for initialization
 	void Start () {
-
+		Screen.showCursor = false;
 	}
 	
 	// Update is called once per frame
@@ -39,8 +40,13 @@ public class Game : MonoBehaviour {
 			popIndex = 1;
 		else
 			popIndex = 2;
-		
-		GameObject pop = (GameObject) Instantiate(pops[popIndex], new Vector2(0, 0), transform.rotation);
-		pop.rigidbody2D.AddForce(Vector2.up * force);
+
+		float randomAngle = Random.Range (45, 135);
+		float x = Mathf.Cos (randomAngle * Mathf.Deg2Rad);
+		float y = Mathf.Sin (randomAngle * Mathf.Deg2Rad);
+		Vector2 launchVector = new Vector2 (x, y);
+
+		GameObject pop = (GameObject) Instantiate(pops[popIndex], instantiator.transform.position, transform.rotation);
+		pop.rigidbody2D.AddForce(launchVector * force);
 	}
 }

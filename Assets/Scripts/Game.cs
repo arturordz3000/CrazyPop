@@ -25,11 +25,11 @@ public class Game : MonoBehaviour {
 		instantiateTime += Time.deltaTime;
 		timeLeft -= Time.deltaTime;
 
-		if (timeLeft <= 1) {
+		/*if (timeLeft <= 1) {
 			Application.LoadLevel("gameover-screen");
-		}
+		}*/
 
-		if (instantiateTime > 1)
+		if (instantiateTime > 0.5)
 		{
 			InstantiateRandomPop();
 			instantiateTime = 0;

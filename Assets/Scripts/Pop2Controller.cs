@@ -4,8 +4,8 @@ using System.Collections;
 public class Pop2Controller : Pop1Controller {
 
 	// Use this for initialization
-	void Start () {
-
+	protected override void Start () {
+		base.Start ();
 	}
 	
 	// Update is called once per frame

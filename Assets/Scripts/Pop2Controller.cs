@@ -18,6 +18,8 @@ public class Pop2Controller : Pop1Controller {
 
 	protected override void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
-		//base.OnCollisionEnter2D (collisionInfo);
+		if (collisionInfo.gameObject.tag == "MouthCollider") {
+			Destroy(this.gameObject);
+		}
 	}
 }

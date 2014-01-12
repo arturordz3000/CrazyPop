@@ -5,11 +5,13 @@ public class Pop1Controller : MonoBehaviour {
 
 	//public GameObject mouthCollider;
 	public AudioClip popSound;
+	public bool isMovingDown;
 
 	// Use this for initialization
 	protected virtual void Start () {
 		audio.Play ();		
 		Game.popNumber++;
+		isMovingDown = false;
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,10 @@ public class Pop1Controller : MonoBehaviour {
 		if (gameObject.rigidbody2D.velocity.y < 0) {
 			renderer.sortingOrder = 1;
 		}
+
+		if (isMovingDown) {
+
+		}
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D collisionInfo)
@@ -33,6 +39,16 @@ public class Pop1Controller : MonoBehaviour {
 		if (collisionInfo.gameObject.tag == "MouthCollider") {
 			Destroy(this.gameObject);
 			Game.score += 1;
+		}
+
+		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {
+			Vector2 p = this.gameObject.rigidbody2D.velocity;
+			p.x += -p.x;
+			this.gameObject.rigidbody2D.velocity = p;
+			isMovingDown = true;
+			p.x = collisionInfo.gameObject.transform.position.x;
+			p.y = this.gameObject.transform.position.y;
+			this.gameObject.transform.position = p;
 		}
 
 

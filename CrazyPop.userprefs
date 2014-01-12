@@ -1,18 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="CrazyPop.sln" Line="40" Column="1" />
-      <File FileName="Assets\Scripts\Game.cs" Line="42" Column="5" />
+      <File FileName="CrazyPop.sln" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game.cs" Line="42" Column="4" />
       <File FileName="Assets\Scripts\MenuController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="19" Column="22" />
       <File FileName="Assets\Scripts\Pop1Controller.cs" Line="19" Column="14" />
       <File FileName="Assets\Scripts\Pop2Controller.cs" Line="16" Column="4" />
       <File FileName="Assets\Scripts\Pop3Controller.cs" Line="7" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\bestbuy\Documents\GitHub\CrazyPop\Assets\Scripts\Player.cs" line="11" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\Scripts\Player.cs" line="16" offsetX="757" offsetY="255" expression="gameObject" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

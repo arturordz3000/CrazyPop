@@ -8,7 +8,6 @@ public class Player : MonoBehaviour {
 	void Start () {
 		isMovingUp = false;
 		isMovingDown = false;
-		Vector2 p = lengua.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -29,12 +28,12 @@ public class Player : MonoBehaviour {
 
 		if(isMovingUp){
 			p = lengua.transform.position;
-			p.y += 0.1f;
+			p.y += 0.2f;
 			lengua.transform.position = p;
 		}
 		if (isMovingDown) {
 			p = lengua.transform.position;
-			p.y -= 0.1f;
+			p.y -= 0.2f;
 			lengua.transform.position = p;
 		}
 	}

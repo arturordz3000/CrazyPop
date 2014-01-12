@@ -4,10 +4,11 @@ using System.Collections;
 public class Pop1Controller : MonoBehaviour {
 
 	//public GameObject mouthCollider;
+	public AudioClip popSound;
 
 	// Use this for initialization
 	protected virtual void Start () {
-		renderer.sortingOrder = 1;
+		audio.Play ();
 	}
 	
 	// Update is called once per frame

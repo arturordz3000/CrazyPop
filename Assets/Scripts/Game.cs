@@ -14,15 +14,21 @@ public class Game : MonoBehaviour {
 	public Transform crazyPopLogo;
 	public float logoPositionOffset = 100;
 	public float timeLeft = 60.0f;
+	public Vector2 offsetTimer = new Vector2 (51.7f, 59);
+	public float radiusTimer = 38.1f;
+	public int animationDegrees = 360;
 
-	private float instantiateTime = 0;
+	private float instantiateTime = 0.0f;
 	private bool isGameFinished = false;
+	private Material lineMaterial;
+	private float totalTime;
 
 	public static int popNumber = 0;
 
 	// Use this for initialization
 	void Start () {
 		Screen.showCursor = false;
+		totalTime = timeLeft;
 	}
 	
 	// Update is called once per frame
@@ -51,6 +57,27 @@ public class Game : MonoBehaviour {
 		Vector2 crazyPopLogoPosition = crazyPopLogo.transform.position;
 		crazyPopLogoPosition.x = Camera.main.ScreenToWorldPoint (new Vector3 (logoPositionOffset * 2, 0, 0)).x;
 		crazyPopLogo.transform.position = crazyPopLogoPosition;
+	}
+
+	void Awake()		
+	{
+		
+		lineMaterial = new Material( "Shader \"Lines/Colored Blended\" {" +
+		                            
+		                            "SubShader { Pass {" +
+		                            
+		                            "   BindChannels { Bind \"Color\",color }" +
+		                            
+		                            "   Blend SrcAlpha OneMinusSrcAlpha" +
+		                            
+		                            "   ZWrite Off Cull Off Fog { Mode Off }" +
+		                            
+		                            "} } }");
+		
+		lineMaterial.hideFlags = HideFlags.HideAndDontSave;
+		
+		lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
+		
 	}
 
 	void InstantiateRandomPop()
@@ -82,5 +109,33 @@ public class Game : MonoBehaviour {
 		int timeLeftInteger = (int)timeLeft;
 		GUI.Label(new Rect(Screen.width - 32 - 30, 40, 100, 100),  timeLeftInteger.ToString(), style);
 		GUI.Label (new Rect (Screen.width - 32 - 100, 130, 100, 100), "Score: " + score, style);
+	}
+
+	void OnPostRender()
+	{
+		GL.Begin (GL.LINES);
+		lineMaterial.SetPass (0);
+		GL.Color (Color.white);
+		
+		float radius = radiusTimer;
+		Vector2 center = new Vector2 (Screen.width - offsetTimer.x, Screen.height - offsetTimer.y);
+		
+		animationDegrees = (int)(360.0f / totalTime * timeLeft);
+		
+		if (!isGameFinished) {
+			for (int i = 0; i < animationDegrees; i++) {
+				Vector3 vertex = new Vector3 (0, 0, 0);
+				vertex.x = center.x + radius * Mathf.Cos (i * Mathf.Deg2Rad);
+				vertex.y = center.y + radius * Mathf.Sin (i * Mathf.Deg2Rad);
+				
+				Vector3 vertexFinal = Camera.main.ScreenToWorldPoint (vertex);
+				Vector3 vertexCenter = Camera.main.ScreenToWorldPoint (center);
+				
+				GL.Vertex (new Vector3 (vertexCenter.x, vertexCenter.y, 0));
+				GL.Vertex (new Vector3 (vertexFinal.x, vertexFinal.y, 0));
+			}
+		}
+		
+		GL.End ();
 	}
 }

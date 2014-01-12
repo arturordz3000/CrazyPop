@@ -20,6 +20,8 @@ public class Pop2Controller : Pop1Controller {
 	{
 		if (collisionInfo.gameObject.tag == "MouthCollider") {
 			Destroy(this.gameObject);
+			if( Game.score > 0)
+				Game.score--;
 		}
 
 		if (collisionInfo.gameObject.name.Equals ("mouth-tongue")) {

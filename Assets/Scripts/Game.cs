@@ -9,7 +9,9 @@ public class Game : MonoBehaviour {
 	public Transform instantiator;
 	public KeyCode instantiateKey;
 	public float force = 500;
+	public GUIStyle style;
 
+	public float timeLeft = 60.0f;
 	private float instantiateTime = 0;
 
 	// Use this for initialization
@@ -20,6 +22,7 @@ public class Game : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		instantiateTime += Time.deltaTime;
+		timeLeft -= Time.deltaTime;
 
 		if (instantiateTime > 1)
 		{
@@ -50,5 +53,11 @@ public class Game : MonoBehaviour {
 		pop.rigidbody2D.AddForce(launchVector * force);
 
 		pop.rigidbody2D.AddTorque (10 * -x);
+	}
+
+	void OnGUI()
+	{
+		int timeLeftInteger = (int)timeLeft;
+		GUI.Label(new Rect(Screen.width - 32 - 30, 40, 100, 100),  timeLeftInteger.ToString(), style);
 	}
 }
